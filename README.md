@@ -1,6 +1,6 @@
 # 🌟 FocusFlow – Productivity Web App
 
-**FocusFlow** is a clean, responsive, and interactive productivity website built using **HTML**, **CSS**, and **JavaScript**. Designed with simplicity and utility in mind, it helps users stay organized and focused throughout the day.
+**FocusFlow** is a clean, responsive, and interactive productivity website built using **HTML**, **CSS**, and **JavaScript**. Designed to help users stay organized and focused, it offers multiple tools in one intuitive interface.
 
 ---
 
@@ -17,6 +17,22 @@
 
 ---
 
+## 📸 Screenshots
+
+### 🏠 Home Page  
+![Home Page](assets/home.png)
+
+### 📝 Notes Section  
+![Notes Section](assets/notes.png)
+
+### 📅 Schedule Planner  
+![Schedule Section](assets/schedule.png)
+
+### ⏱️ Pomodoro Timer  
+![Timer Section](assets/timer.png)
+
+---
+
 ## 🔧 Tech Stack
 
 - **HTML5** – Markup and structure  
@@ -26,13 +42,7 @@
 ---
 
 
-## 🙌 Acknowledgments
-
-Inspired by minimal productivity tools and the Pomodoro technique.
-
----
-
 ## 💬 Feedback
 
-Feel free to open issues or contribute. If you like the project, give it a ⭐!
+If you find this project useful, feel free to ⭐ it and share feedback. Contributions are welcome!
 

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow - Productivity Hub</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/timer.css">
+    <link rel="stylesheet" href="styles/todo.css">
+    <link rel="stylesheet" href="styles/notes.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/clock.css">
+    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="styles/schedule.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Login Section -->
+    <section id="login-section" class="section">
+        <div class="card">
+            <h2 class="card-title">Welcome to FocusFlow</h2>
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="logo">FocusFlow</div>
+                    <p>Sign in to continue</p>
+                </div>
+                
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="login-name">Full Name</label>
+                        <input type="text" id="login-name" placeholder="Enter your name">
+                    </div>
+
+                 
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required placeholder="Enter your password">
+                        <div class="password-toggle">
+                            <i class="far fa-eye" id="toggle-password"></i>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember-me" class="remember-checkbox">
+                            <span class="checkmark"></span>
+                            <span class="remember-text">Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary login-btn">Sign In</button>
+                    <div class="login-footer">
+                        Don't have an account? <a href="#" class="auth-toggle">Sign up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup-section" class="section">
+        <div class="card">
+            <h2 class="card-title">Create Account</h2>
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="logo">FocusFlow</div>
+                    <p>Get started with your account</p>
+                </div>
+                
+                <form id="signup-form" class="login-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" required placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required placeholder="Create a password">
+                        <div class="password-toggle">
+                            <i class="far fa-eye" id="toggle-signup-password"></i>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary login-btn">Sign Up</button>
+                </form>
+                
+                <div class="signup-footer">
+                    Already have an account? <a href="#" class="auth-toggle">Log in</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <header>
+        <div class="header-content">
+            <nav>
+                <div class="logo">FocusFlow</div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" data-section="home" aria-current="page">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#" class="nav-link" data-section="timer">
+                        <i class="fas fa-clock"></i> Timer
+                    </a>
+                    <a href="#" class="nav-link" data-section="todo">
+                        <i class="fas fa-tasks"></i> Tasks
+                    </a>
+                    <a href="#" class="nav-link" data-section="schedule">
+                        <i class="fas fa-calendar-alt"></i> Schedule
+                    </a>
+                    <a href="#" class="nav-link" data-section="notes">
+                        <i class="fas fa-edit"></i> Notes
+                    </a>
+                </div>
+
+                <div class="nav-controls">
+
+                    <div class="profile-dropdown">
+                        <button class="profile-toggle" id="profile-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="profile-menu">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                           
+                            <i class="dropdown-chevron fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" id="profile-menu" role="menu" aria-labelledby="profile-toggle">
+                            <li role="none">
+                                <button class="dropdown-item" data-section="profile" role="menuitem">
+                                    <i class="fas fa-user"></i> Profile
+                                </button>
+                            </li>
+                            <li role="none">
+                                <button class="dropdown-item" id="settings-btn" role="menuitem">
+                                    <i class="fas fa-cog"></i> Settings
+                                </button>
+                            </li>
+                            <li role="none">
+                                <button class="dropdown-item" id="logout-btn" role="menuitem">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle dark/light mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                </div>
+            </nav>
+        </div>
+        <!-- Clock Display -->
+        <div class="corner-clock">
+            <span class="time" id="corner-time">00:00</span>
+            <span id="corner-period">AM</span>
+          </div>
+    </header>
+
+    <div class="container">
+       <!-- Home Section -->
+<!-- Home Section -->
+<section id="home-section" class="section active">
+    <div class="card">
+        <div class="home-container">
+            <!-- Welcome Header -->
+            <div class="welcome-header">
+                <h1 class="h1">Welcome, <span id="username">User</span> <i class="fas fa-hand-peace"></i></h1>
+                <p class="subtitle">Your productivity dashboard is ready. Let's make today count!</p>
+            </div>
+
+               
+        
+      
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" id="streak"><i class="fas fa-fire"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="current-streak">0</div>
+                        <div class="stat-label">Current Streak</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" id="clock"><i class="fas fa-clock"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="today-minutes">0</div>
+                        <div class="stat-label">Minutes Focused Today</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" id="tick"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="completed-tasks">0</div>
+                        <div class="stat-label">Tasks Completed</div>
+                    </div>
+                </div>
+                      <!-- New Components Row 2 -->
+                      <div class="home-row">
+
+                        <!-- Quick Focus -->
+                        <div class="action-card focus-quickstart">
+                            <h3>Quick Focus Session</h3>
+                            <div class="presets-buttons">
+                                <button class="quick-focus-btn btn btn-preset"  id = trap1 data-minutes="15">15 min</button>
+                                <button class="quick-focus-btn btn btn-preset"  id = trap2 data-minutes="25">25 min</button>
+                                <button class="quick-focus-btn btn btn-preset " id = trap3 data-minutes="50">50 min</button>
+                            </div>
+                            <div class="customs-input">
+                        <input type="number" id="custom-minutes1" placeholder="Minutes">
+
+                        <button class="btn quick-focus-btn btn-present btn-secondary" id="set-custom-timer1" onclick="showSection('timer')">Start</button>
+                            </div>
+                        </div>
+                              <!-- Motivational Quote -->
+                              <div class="action-card quote-widget">
+                                <div class="quotes">
+                                <div class="quote-text" id="current-quote">"Productivity is never an accident. It is always the result of a commitment to excellence, intelligent planning, and focused effort."</div>
+                                <div class="quote-author" id="quote-author">- Paul J. Meyer</div></div>
+                                <button class="new-quote" id="new-quote-btn" onclick="showRandomQuote()">New Quote</button>
+                            </div>
+            
+                    </div>
+            </div>
+
+           
+         
+
+
+
+   
+            <!-- Quick Actions (Original) -->
+            <div class="quick-actions">
+                <a href="#" class="nav-link nots" data-section="timer">
+                    <div class="action-card">
+                        <div class="action-icon" id = "clocks"><i  class="fas fa-clock"></i></div>
+                        <h3>Focus Timer</h3>
+                        <p>Start a Pomodoro session to maximize your productivity with timed work intervals.</p>
+                        <span class="action-link">Start Session <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="#" class="nav-link nots" data-section="todo">
+                    <div class="action-card">
+                        <div class="action-icon" id = "tasks" ><i class="fas fa-tasks"></i></div>
+                        <h3>Task Manager</h3>
+                        <p>Organize your to-dos with priorities and due dates for better task management.</p>
+                        <span class="action-link">View Tasks <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="#" class="nav-link nots" data-section="schedule">
+                    <div class="action-card">
+                        <div class="action-icon" id = "calendar"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Daily Schedule</h3>
+                        <p>Plan your day by time blocking important activities and appointments.</p>
+                        <span class="action-link">View Schedule <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="#" class="nav-link nots" data-section="notes">
+                    <div class="action-card">
+                        <div class="action-icon"  id = "lightbulb"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Quick Notes</h3>
+                        <p>Capture ideas, thoughts, or reminders before they slip your mind.</p>
+                        <span class="action-link">Take Notes <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Timer Section -->
+        <section id="timer-section" class="section">
+            <div class="card">
+                <h2 class="card-title">Focus Timer</h2>
+                <div class="timer-container">
+                    <div class="timer-display" id="timer">25:00</div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="start-timer" aria-label="Start timer">Start</button>
+                        <button class="btn btn-secondary" id="reset-timer">Reset</button>
+                        <button class="btn btn-secondary" id="end-timer">End Focus</button>
+                    </div>
+                    <div class="custom-timer">
+                        <input type="number" id="custom-minutes" placeholder="Minutes">
+                        <button class="btn btn-secondary" id="set-custom-timer">Set</button>
+                    </div>
+                    <div class="preset-buttons">
+                        <button class="btn btn-preset" data-minutes="5">5 min</button>
+                        <button class="btn btn-preset" data-minutes="15">15 min</button>
+                        <button class="btn btn-preset" data-minutes="25">25 min</button>
+                        <button class="btn btn-preset" data-minutes="50">50 min</button>
+                    </div>
+                  
+                    <div class="timer-mode-toggle">
+                        <button class="btn btn-secondary" id="timer-mode-btn">Switch to Stopwatch</button>
+                    </div>
+                    <div class="focus-stats-1">
+                        <div>Total Focused Today:</div>
+                        <div class="focus-stats">
+                            <div class="total-focused" id="total-focused">0 minutes</div>
+                            <div class="sessions-today" id="sessions-today">0 sessions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Todo List Section -->
+        <section id="todo-section" class="section">
+            <div class="card">
+                <h2 class="card-title">Tasks</h2>
+                <div class="todo-container">
+                    <form class="todo-form">
+                        <input type="text" id="todo-input" placeholder="Add a new task..." required aria-label="Task input">
+                        <select id="priority-select" aria-label="Task priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                       
+                        </select>
+                        <input type="date" id="due-date" aria-label="Due date">
+                        <button type="submit" id="add-todo">Add Task</button>
+                    </form>
+                    <ul class="todo-list" id="todo-list">
+                        <!-- Todo items will be added here dynamically -->
+                    </ul>
+                    <div class="todo-actions-container">
+                        <button id="export-todos">Export Tasks</button>
+                        <button id="import-todos">Import Tasks</button>
+                        <button id="sort-priority">Sort by Priority</button>
+                        <button id="sort-date">Sort by Date</button>
+                        <input type="file" id="todo-import-file" accept=".json" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule-section" class="section">
+            <div class="card">
+                <h2 class="card-title">Daily Schedule</h2>
+                <div class="schedule-container">
+                    <form id="schedule-form">
+                        <div class="time-input-container">
+                            <input type="time" id="schedule-start-time" required>
+                        </div>
+                        <span class="time-separator">→</span>
+                        <div class="time-input-container">
+                            <input type="time" id="schedule-end-time" required>
+                        </div>
+                        <select id="schedule-priority" aria-label="Task priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            
+                        </select>
+                        <input type="text" id="schedule-task" placeholder="Add a scheduled task..." required>
+                        <button type="submit" id="add-schedule">Add Task</button>
+                    </form>
+                    <div id="schedule-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes Section -->
+        <section id="notes-section" class="section">
+            <div class="card">
+                <h2 class="card-title">Notes</h2>
+                <div class="notes-container">
+                    <div class="notes-sidebar">
+                        <button class="btn btn-primary" id="new-note"><i class="fas fa-plus"></i> New Note</button>
+                        <ul class="notes-list" id="notes-list">
+                            <!-- Notes list will appear here -->
+                        </ul>
+                    </div>
+                    <div class="notes-main">
+                        <input type="text" id="note-title" placeholder="Note title" aria-label="Note title">
+                        <div class="notes-toolbar">
+                            <button class="btn btn-secondary" id="bold-btn" aria-label="Bold text"><i class="fas fa-bold"></i></button>
+                            <button class="btn btn-secondary" id="italic-btn" aria-label="Italic text"><i class="fas fa-italic"></i></button>
+                            <button class="btn btn-secondary" id="ul-btn" aria-label="Unordered list"><i class="fas fa-list-ul"></i></button>
+                            <button class="btn btn-secondary" id="ol-btn" aria-label="Ordered list"><i class="fas fa-list-ol"></i></button>
+                        </div>
+                        <div class="notes-view-tabs">
+                            <button class="btn btn-secondary active" data-view="edit">Edit</button>
+                            <button class="btn btn-secondary" data-view="preview">Preview</button>
+                        </div>
+                        <div class="notes-content">
+                            <div id="notes-edit-view">
+                                <textarea id="notes-textarea" placeholder="Write your notes here..." aria-label="Notes content"></textarea>
+                            </div>
+                            <div id="notes-preview-view" style="display:none;"></div>
+                            <div class="notes-actions">
+                                <button class="btn btn-secondary" id="clear-notes">Clear</button>
+                                <button class="btn btn-primary" id="save-notes">Save</button>
+                                <button class="btn btn-secondary" id="export-note">Export</button>
+                            </div>
+                            <div class="notes-stats" id="notes-stats">0 words, 0 characters</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Session Complete Modal -->
+    <div class="session-modal" id="session-modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Session Complete!</h3>
+            <p class="modal-text">Great job focusing for <span id="completed-minutes">25</span> minutes. Take a short break before your next session.</p>
+            <button class="modal-btn" id="modal-close-btn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Break Time Modal -->
+    <div class="session-modal" id="break-modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Break Time!</h3>
+            <p class="modal-text">You've earned a 5 minute break. Relax and stretch!</p>
+            <button class="modal-btn" id="start-break-btn">Start Break</button>
+        </div>
+    </div>
+
+    <!-- Clock Section -->
+    <section id="clock-section">
+        <div class="clock-container">
+            <button id="close-clock" aria-label="Close clock">×</button>
+            <div id="full-clock-time">00:00:00</div>
+            <div id="full-clock-date">Monday, January 1</div>
+        </div>
+    </section>
+    <div id="clock-overlay"></div>
+
+    <!-- JS Files -->
+    
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/timer.js"></script>
+    <script src="scripts/todo.js"></script>
+    <script src="scripts/notes.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/clock.js"></script>
+    <script src="scripts/signup.js"></script>
+    <script src="scripts/schedule.js"></script>
+    <script src="scripts/navbar.js"></script>
+</body>
+</html>

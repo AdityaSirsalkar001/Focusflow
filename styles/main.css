@@ -1,0 +1,666 @@
+:root {
+    --bg-dark: #121212;
+    --bg-darker: #0a0a0a;
+    --accent: #6b26d9;
+    --accent-light: #8b5cf6;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --card-bg: #1e1e1e;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --focus-bg: #0d0714;
+    --focus-accent: #7c3aed;
+    --break-color: #10b981;
+    --due-date-bg: rgba(0,0,0,0.2);
+    --streak: #f59e0b;
+    --task-bg: #2d2d2d;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+:root.light-mode {
+    --bg-dark: #f8f9fa;
+    --bg-darker: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --card-bg: #ffffff;
+    --accent: #6d28d9;
+    --accent-light: #8b5cf6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --focus-bg: #f3e8ff;
+    --focus-accent: #7c3aed;
+    --break-color: #10b981;
+    --due-date-bg: rgba(0,0,0,0.05);
+      --streak: #f59e0b;
+      --task-bg: white;
+      transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+body.focus-mode {
+    background-color: var(--focus-bg);
+}
+
+@keyframes pulseBackground {
+    0% { background-color: var(--focus-bg); }
+    100% { background-color: #11071b; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding: 20px;
+    padding-top:5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* Header with Navbar */
+header {
+    background-color: var(--bg-darker);
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+    position: relative;
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+body.focus-mode header {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    color: var(--accent-light);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 10px 12px;
+    border-radius: 500px;
+    transition: all 0.2s;
+    
+}
+
+.theme-toggle:hover {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+.nav-controls{
+    position: absolute;
+    top: 15px;
+    width:133px;
+    right: 140px;
+   
+}
+/* Corner Clock */
+.corner-clock {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.corner-clock .time {
+    color: var(--accent-light);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    /* position: relative; */
+    gap: 15px;
+    align-items: center;
+}
+
+
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: all 0.2s;
+    margin-right: 10px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+}
+
+.nav-link.active {
+    color: var(--accent-light);
+    font-weight: 500;
+}
+
+/* Main Content Sections */
+.section {
+    display: none;
+    min-height: calc(100vh - 200px);
+}
+
+.section.active {
+    display: block;
+}
+
+body.focus-mode .section:not(#timer-section) {
+    display: none !important;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    padding-top: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    height: 91%;
+    transition: all 0.3s ease;
+}
+
+body.focus-mode .card {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+ 
+    
+   
+   
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--accent-light);
+    font-weight: 600;
+}
+
+body.focus-mode .card-title {
+    display: none;
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
+
+/* Focus Mode Exit Button */
+.exit-focus-mode {
+    position: fixed;
+    
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: rgba(30, 30, 30, 0.9);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+body.focus-mode .exit-focus-mode {
+    opacity: 1;
+    pointer-events: all;
+    
+}
+
+.exit-focus-mode:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+}
+
+/* Accessibility Focus Styles */
+:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+/* Enhanced Light Mode Styles */
+:root.light-mode {
+    /* Text and backgrounds */
+    --text-primary: #1a1a1a;  /* Darker text for better contrast */
+    --text-secondary: #4a4a4a;
+    --card-bg: #ffffff;
+    --bg-dark: #f5f5f5;
+    --bg-darker: #e0e0e0;
+    
+    /* Interactive elements */
+    --accent: #6d28d9;
+    --accent-light: #7c3aed;
+    
+    /* Status colors */
+    --success: #15803d;  /* Darker green */
+    --danger: #b91c1c;   /* Darker red */
+    --warning: #b45309;  /* Darker orange */
+    
+    /* Shadows and borders */
+    --card-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    
+    /* Focus mode */
+    --focus-bg: #f3e8ff;
+    --focus-accent: #7c3aed;
+}
+
+/* Light mode specific adjustments */
+.light-mode {
+    /* Cards */
+    .card {
+        box-shadow: var(--card-shadow);
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    /* Inputs */
+    input, textarea, select {
+        background-color: white;
+        border: 1px solid #ddd;
+        color: var(--text-primary);
+    }
+    
+    /* Todo items */
+    .todo-item {
+        background-color: white;
+        border-left-color: var(--accent);
+    }
+    
+    /* Notes */
+    .notes-sidebar {
+        background-color: white;
+        border-right: 1px solid #eee;
+    }
+    
+    /* Timer display */
+    #timer {
+        color: var(--accent);
+    }
+    
+    /* Buttons */
+    .btn-secondary {
+        background-color: #f0f0f0;
+        color: var(--text-primary);
+    }
+    
+    /* Navigation */
+    .nav-link {
+        color: var(--text-secondary);
+    }
+    
+    .nav-link:hover, .nav-link.active {
+        background-color: rgba(0,0,0,0.05);
+    }
+}
+
+/* Dark mode transitions */
+body, .card, input, button {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+/* ===== Light Mode Specific Fixes ===== */
+body.light-mode {
+    /* Input fields */
+    input:not([type="checkbox"]):not([type="radio"]),
+    textarea,
+    select {
+        background-color: var(--input-bg) !important;
+        border: 1px solid var(--input-border) !important;
+        color: var(--input-text) !important;
+    }
+    
+    /* Clock in header */
+    .corner-clock {
+        background-color: var(--clock-bg) !important;
+        color: var(--clock-text) !important;
+    }
+    .corner-clock .time {
+        color: var(--clock-text) !important;
+    }
+    #corner-period {
+        color: var(--clock-period) !important;
+    }
+    
+    /* Notes textarea */
+    #notes-textarea {
+        background-color: var(--input-bg) !important;
+        border-color: var(--input-border) !important;
+        color: var(--input-text) !important;
+    }
+    
+    /* Todo items */
+    .todo-item {
+        background-color: var(--card-bg) !important;
+        border-left-color: var(--accent) !important;
+    }
+    
+    /* Priority borders */
+    .todo-item.priority-high {
+        border-left-color: var(--danger) !important;
+    }
+    .todo-item.priority-medium {
+        border-left-color: var(--accent) !important;
+    }
+    .todo-item.priority-low {
+        border-left-color: var(--success) !important;
+    }
+    
+    /* Checkboxes */
+    .todo-checkbox {
+        filter: brightness(0.9);
+    }
+    
+    /* Due date badges */
+    .due-date {
+        background-color: rgba(0,0,0,0.05) !important;
+        color: var(--text-secondary) !important;
+    }
+    
+    /* Notes sidebar */
+    .notes-sidebar {
+        background-color: var(--card-bg) !important;
+        border-right: 1px solid var(--input-border) !important;
+    }
+    
+    /* Notes list items */
+    .notes-list li {
+        color: var(--text-primary) !important;
+    }
+    .notes-list li:hover, .notes-list li.active {
+        background-color: rgba(109, 40, 217, 0.1) !important;
+    }
+}
+
+/* ===== Transition Effects ===== */
+input, textarea, select, .corner-clock, .todo-item, .notes-sidebar, 
+.notes-list li, #notes-textarea, .due-date {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== Enhanced Light Mode Styling ===== */
+body.light-mode {
+    /* Timer Preset Buttons */
+    .btn-preset {
+        background-color: var(--btn-preset-bg) !important;
+        color: var(--btn-preset-text) !important;
+        border: 1px solid var(--input-border) !important;
+    }
+    
+    .btn-preset:hover {
+        background-color: var(--btn-preset-hover) !important;
+    }
+    
+    .btn-preset:active {
+        background-color: var(--btn-preset-active) !important;
+    }
+    
+    /* Navbar Styling */
+    header {
+        background-color: var(--navbar-bg) !important;
+        border-bottom: 1px solid var(--navbar-border) !important;
+    }
+    
+    .nav-link {
+        color: var(--text-secondary) !important;
+    }
+    
+    .nav-link:hover {
+        background-color: var(--navlink-hover) !important;
+        color: var(--accent) !important;
+    }
+    
+    .nav-link.active {
+        background-color: var(--navlink-active) !important;
+        color: var(--accent) !important;
+        font-weight: 500;
+    }
+    
+    /* Theme Toggle Button */
+    .theme-toggle {
+        color: var(--text-secondary) !important;
+    }
+    
+    .theme-toggle:hover {
+        background-color: var(--navlink-hover) !important;
+        color: var(--accent) !important;
+    }
+    
+    /* Logo Color */
+    .logo {
+        color: var(--accent) !important;
+    }
+    
+    /* Timer Display */
+    .timer-display {
+        color: var(--accent) !important;
+    }
+    
+    /* Custom Timer Input */
+    .custom-timer input {
+        background-color: var(--input-bg) !important;
+        border: 1px solid var(--input-border) !important;
+        color: var(--input-text) !important;
+    }
+}
+
+/* ===== Smooth Transitions ===== */
+.btn-preset, .nav-link, header, .theme-toggle, .timer-display {
+    transition: all 0.3s ease;
+}
+/* Light mode transitions */
+body.light-mode {
+    transition: background-color var(--transition-speed) ease;
+}
+
+/* Input placeholder styling */
+.light-mode ::placeholder {
+    color: var(--input-placeholder);
+}
+
+/* Button borders */
+.light-mode .btn-preset {
+    border:1px solid var(--btn-preset-border);
+}
+
+/* Active navlink text */
+.light-mode .nav-link.active {
+    color: var(--navlink-active-text) !important;
+}
+
+/* Focus Mode Cleanup */
+body.focus-mode {
+    background: var(--focus-bg) !important;
+    animation: none !important;
+}
+
+body.focus-mode .card {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+body.focus-mode .timer-display {
+    color: var(--accent) !important;
+    text-shadow: none !important;
+}
+
+body.focus-mode .exit-focus-mode {
+    background: var(--card-bg) !important;
+   border: 1px solid var(--input-border) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Remove all animations in focus mode */
+/* body.focus-mode * {
+    animation: none !important;
+    transition: none !important;
+} */
+/* Logout Button Styles */
+.logout-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    margin-left: 15px;
+}
+
+.logout-btn:hover {
+    color: var(--accent-light);
+    background: rgba(109, 40, 217, 0.1);
+}
+
+.logout-btn i {
+    font-size: 0.9rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .logo svg {
+    color: var(--accent);
+    transition: all 0.3s ease;
+  }
+  
+  .logo:hover {
+    color: var(--accent);
+  }
+  
+  .logo:hover svg {
+    color: var(--accent-light);
+    transform: rotate(15deg);
+  }
+  
+  /* Animation for focus mode */
+  body.focus-mode .logo span {
+    display: none;
+  }
+  
+  body.focus-mode .logo svg {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  .ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}

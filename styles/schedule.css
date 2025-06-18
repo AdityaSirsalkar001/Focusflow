@@ -1,0 +1,361 @@
+/* Schedule Section - Matches Todo Styling */
+.schedule-container {
+  min-height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+#schedule-form {
+  display: flex;
+  margin-bottom: 25px;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#schedule-task {
+  flex-grow: 1;
+  min-width: 200px;
+  padding: 12px 15px;
+  background-color: var(--task-bg);
+  border: 1px solid var(--input-border, #444);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.time-input-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+#schedule-start-time,
+#schedule-end-time {
+  padding: 11px 35px 11px 15px;
+  background-color: var(--task-bg);
+  border: 1px solid var(--input-border, #444);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  width: 110px;
+  margin: 4px;
+  appearance: none;
+}
+
+.time-control {
+  width: 20px;
+  height: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 2px;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.time-control.increment {
+  top: 2px;
+}
+
+.time-control.decrement {
+  bottom: 2px;
+}
+
+.time-control:hover {
+  color: var(--accent);
+}
+
+.time-control {
+  margin: 5px;
+  height: 8px !important;
+}
+
+.time-control i {
+  font-size: 10px;
+}
+
+.schedule-container {
+    min-height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+  
+#schedule-form {
+    display: flex;
+    margin-bottom: 25px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+  
+#schedule-task {
+    flex-grow: 1;
+    min-width: 200px;
+    padding: 12px 15px;
+    background-color: var(--task-bg);
+    border: 1px solid var(--input-border, #444);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+  
+#schedule-start-time, 
+#schedule-end-time {
+    padding: 11px 15px;
+    background-color: var(--task-bg);
+    border: 1px solid var(--input-border, #444);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+  
+#schedule-form button {
+    padding: 12px 20px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+  
+#schedule-form button:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-1px);
+}
+  
+#schedule-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    max-height: 80%;
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--card-bg);
+}
+  
+.schedule-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    margin-top: 1px;
+    background-color: var(--task-bg);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    gap: 12px;
+    border-left: 4px solid var(--accent);
+    word-break: break-word;
+}
+  
+.schedule-item:hover {
+    background-color: var(--task-hover-bg, #333);
+    transform: translateY(-1px);
+}
+.schedule-time {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 5px;
+    white-space: nowrap;
+    /* background-color is now handled by CSS variables */
+}
+  
+.time-separator {
+    color: var(--text-secondary);
+}
+  
+.start-time {
+    color: var(--success);
+}
+  
+.end-time {
+    color: var(--warning);
+}
+  
+.schedule-task {
+    flex-grow: 1;
+    margin-right: 15px;
+    word-break: break-word;
+    min-width: 0;
+}
+  
+.schedule-empty {
+    text-align: center;
+    padding: 120px 20px;
+    color: var(--text-secondary);
+}
+  
+.schedule-empty i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--accent-light);
+    opacity: 0.5;
+}
+  
+/* Priority colors matching Todo list */
+.schedule-item.priority-high {
+    border-left-color: var(--danger);
+}
+.schedule-item.priority-medium {
+    border-left-color: var(--accent);
+}
+.schedule-item.priority-low {
+    border-left-color: var(--success);
+}
+
+/* Priority Selector - Matches Todo List Styling */
+#schedule-priority {
+    padding: 12px 15px;
+    background-color: var(--task-bg);
+    border: 1px solid var(--input-border, #444);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    min-width: 120px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2394a3b8'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    transition: all 0.2s;
+}
+  
+#schedule-priority:hover {
+    background-color: var(--task-hover-bg, #333);
+    border-color: var(--accent-light);
+}
+  
+#schedule-priority:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.3);
+}
+  
+/* Priority Options */
+#schedule-priority option {
+    background: var(--card-bg);
+    color: var(--text-primary);
+}
+  
+/* Priority Indicator Colors */
+.schedule-item.priority-high {
+    border-left-color: var(--danger);
+}
+.schedule-item.priority-medium {
+    border-left-color: var(--accent);
+}
+.schedule-item.priority-low {
+    border-left-color: var(--success);
+}
+  
+/* Completed Task Styling */
+.schedule-item.completed {
+    opacity: 0.7;
+    background-color: var(--task-completed-bg, #252525);
+}
+.schedule-item.completed .schedule-task {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+.schedule-item.completed .schedule-time {
+    opacity: 0.6;
+}
+
+/* Schedule Form Container */
+#schedule-form {
+    display: flex;
+    margin-bottom: 25px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+  
+/* Time Inputs */
+#schedule-start-time,
+#schedule-end-time {
+    padding: 11px 15px;
+    background-color: var(--task-bg);
+    border: 1px solid var(--input-border, #444);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+  
+/* Time Separator */
+.time-separator {
+    color: var(--text-secondary);
+    padding: 0 5px;
+}
+  
+/* Add Task Button */
+#add-schedule {
+    padding: 12px 20px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+  
+#add-schedule:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-1px);
+}
+
+/* Light Mode Specific Styles */
+body.light-mode .schedule-item {
+    background-color: var(--card-bg);
+    border: 1px solid #d7dadc;
+    border-left: 4px solid var(--accent);
+}
+
+body.light-mode .schedule-item:hover {
+    background-color: #f5f5f5;
+}
+
+body.light-mode #schedule-task,
+body.light-mode #schedule-start-time,
+body.light-mode #schedule-end-time,
+body.light-mode #schedule-priority {
+    background-color: white;
+    border-color: #d1d5db;
+}
+
+
+
+body.light-mode .schedule-item.completed {
+    background-color: #f8f9fa;
+}
+
+/* Schedule Section Animations */
+#schedule-section .schedule-container,
+#schedule-section #schedule-form,
+#schedule-section #schedule-list {
+  animation: cardEntrance 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+/* Staggered delays for Schedule section elements */
+#schedule-section .schedule-container { animation-delay: 0.1s; }
+#schedule-section #schedule-form { animation-delay: 0.2s; }
+#schedule-section #schedule-list { animation-delay: 0.3s; }

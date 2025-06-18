@@ -1,0 +1,218 @@
+/* Notes Section Styles */
+.notes-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    min-height: 450px;
+    height: 73vh;
+    flex-direction: row;
+}
+
+.notes-sidebar {
+    width: 20%;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) #1e1e1e;
+}
+
+.notes-list li {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notes-list li:hover, .notes-list li.active {
+    background-color: rgba(109, 40, 217, 0.2);
+}
+
+.notes-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#note-title {
+    padding: 12px 15px;
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    width: 97%;
+}
+
+.notes-toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.notes-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+}
+
+#notes-textarea {
+    width: 97%;
+    flex-grow: 1;
+    min-height: 220px;
+    background-color: #2d2d2d;
+    color: var(--text-primary);
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    resize: none;
+    transition: all 0.2s;
+    margin-bottom: 15px;
+}
+
+#notes-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.3);
+}
+
+.notes-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.notes-stats {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* Notes View Tabs */
+.notes-view-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.notes-view-tabs button.active {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* Notes Preview View */
+#notes-preview-view {
+    padding: 15px;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#notes-preview-view h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-light);
+}
+
+#notes-preview-view strong {
+    font-weight: bold;
+}
+
+#notes-preview-view em {
+    font-style: italic;
+}
+
+#notes-preview-view ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+/* Improved Delete Button */
+.delete-note-btn {
+    background: transparent;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+    margin-left: 8px;
+}
+
+.delete-note-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.delete-note-btn:active {
+    transform: scale(0.95);
+}
+
+.delete-note-btn i {
+    font-size: 14px;
+}
+
+/* Note List Item Container */
+.notes-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 4px;
+}
+
+/* Note Title Text */
+.note-title-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 8px;
+}
+
+/* Notes Section Animations */
+#notes-section .notes-container,
+#notes-section .notes-sidebar,
+#notes-section .notes-main,
+#notes-section #note-title,
+#notes-section .notes-toolbar,
+#notes-section .notes-content {
+  animation: cardEntrance 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+/* Staggered delays for Notes section */
+#notes-section .notes-container { animation-delay: 0.1s; }
+#notes-section .notes-sidebar { animation-delay: 0.2s; }
+#notes-section .notes-main { animation-delay: 0.3s; }
+#notes-section #note-title { animation-delay: 0.4s; }
+#notes-section .notes-toolbar { animation-delay: 0.5s; }
+#notes-section .notes-content { animation-delay: 0.6s; }

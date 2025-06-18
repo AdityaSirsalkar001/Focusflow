@@ -1,0 +1,153 @@
+/* Responsive Design - Final Optimized Version */
+
+/* Mobile Styles (up to 767px) */
+@media (max-width: 767px) {
+    /* Header Structure */
+    header {
+        position: relative;
+        padding: 10px 15px;
+        height: auto;
+        z-index: 1000;
+    }
+
+    .header-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* Logo */
+    .logo {
+        order: 1;
+        flex: 1;
+        min-width: 120px; /* Prevent logo from shrinking too much */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+        order: 2;
+        display: flex;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        padding: 8px;
+        margin-left: 10px;
+    }
+
+    /* Nav Controls (theme toggle + profile) */
+    .nav-controls {
+        order: 3;
+        display: flex;
+        gap: 8px;
+        margin-left: auto;
+        align-items: center;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+        padding: 6px;
+        font-size: 1.1rem;
+        margin-right: 0;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+        order: 5;
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        padding: 8px 0;
+        margin-top: 5px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 10px 15px;
+        width: 100%;
+    }
+
+    /* Corner Clock - Maintain original width */
+    .corner-clock {
+        order: 4;
+        width: auto; /* Don't force full width */
+        min-width: 100px; /* Maintain reasonable width */
+        margin: 10px 0 0 auto; /* Push to right */
+        padding: 6px 12px;
+        font-size: 1rem;
+    }
+
+    /* Profile Dropdown */
+    .profile-dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        width: 200px;
+        right: 0;
+        left: auto;
+    }
+}
+
+/* Tablet/Desktop Styles (768px and up) */
+@media (min-width: 768px) {
+    /* Hide mobile toggle */
+    .mobile-menu-toggle {
+        display: none;
+    }
+
+    /* Show regular nav */
+    .nav-links {
+        display: flex !important;
+        order: initial;
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Corner Clock Positioning */
+    .corner-clock {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        margin: 0;
+        order: initial;
+    }
+
+    /* Nav Controls */
+    .nav-controls {
+        order: initial;
+        margin-left: 15px;
+    }
+}
+
+/* Focus Mode Adjustments */
+body.focus-mode {
+    .timer-display {
+        font-size: 6rem;
+    }
+
+    @media (max-width: 767px) {
+        .timer-display {
+            font-size: 4rem;
+        }
+    }
+}
+
+/* Ensure theme toggle never overlaps logo */
+@media (max-width: 400px) {
+    .logo {
+        max-width: 100px;
+    }
+    .theme-toggle {
+        margin-left: 5px;
+    }
+}

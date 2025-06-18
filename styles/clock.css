@@ -1,0 +1,116 @@
+/* Enhanced Clock Section */
+#clock-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(2px);
+}
+
+#clock-section.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.clock-container {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 50px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--accent);
+  transform: scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#clock-section.active .clock-container {
+  transform: scale(1);
+}
+
+#close-clock {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+#close-clock:hover {
+  color: var(--accent-light);
+  background: rgba(109, 40, 217, 0.1);
+  transform: rotate(90deg);
+}
+
+#full-clock-time {
+  font-size: 5rem;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  color: var(--accent-light);
+  margin-bottom: 15px;
+  letter-spacing: -2px;
+  text-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+#full-clock-date {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.clock-extra {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.clock-extra-item {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  background: rgba(30, 30, 30, 0.5);
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .clock-container {
+    padding: 30px;
+  }
+  
+  #full-clock-time {
+    font-size: 3.5rem;
+  }
+  
+  #full-clock-date {
+    font-size: 1.4rem;
+  }
+  
+  .clock-extra {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

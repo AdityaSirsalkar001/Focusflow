@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "npx serve . -p 3000",
     "start": "npx serve . -p 3000",
-    "build": "echo 'No build step needed for static files'"
+    "build": "echo 'No build step needed for static files'",
+    "backend:install": "cd backend && npm install",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:start": "cd backend && npm start",
+    "fullstack:dev": "concurrently \"npm run dev\" \"npm run backend:dev\"",
+    "setup": "npm install && npm run backend:install"
   },
   "devDependencies": {
     "serve": "^14.2.1"

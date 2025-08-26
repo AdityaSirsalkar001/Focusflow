@@ -14,7 +14,8 @@
     "setup": "npm install && npm run backend:install"
   },
   "devDependencies": {
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "concurrently": "^8.2.0"
   },
   "repository": {
     "type": "git",

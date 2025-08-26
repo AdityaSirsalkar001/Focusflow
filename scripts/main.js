@@ -205,13 +205,16 @@ function initHomeInteractions() {
         
         // Click handler to navigate to relevant section
         card.addEventListener('click', function() {
-            const statId = this.querySelector('.stat-icon').id;
-            let section = 'timer'; // default
-            
-            if (statId === 'tick') section = 'todo';
-            if (statId === 'streak') section = 'timer'; // or whatever section makes sense
-            
-            showSection(section);
+            const statIcon = this.querySelector('.stat-icon');
+            if (statIcon && statIcon.id) {
+                const statId = statIcon.id;
+                let section = 'timer'; // default
+
+                if (statId === 'tick') section = 'todo';
+                if (statId === 'streak') section = 'timer'; // or whatever section makes sense
+
+                showSection(section);
+            }
         });
     });
 
@@ -220,12 +223,16 @@ function initHomeInteractions() {
     actionCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
             const icon = card.querySelector('.action-icon');
-            icon.classList.add('pulse-animation');
+            if (icon) {
+                icon.classList.add('pulse-animation');
+            }
         });
-        
+
         card.addEventListener('mouseleave', () => {
             const icon = card.querySelector('.action-icon');
-            icon.classList.remove('pulse-animation');
+            if (icon) {
+                icon.classList.remove('pulse-animation');
+            }
         });
     });
 

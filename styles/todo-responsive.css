@@ -1,0 +1,141 @@
+/* Todo Component Responsive Styles */
+
+/* Mobile First - Base styles already work for mobile */
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+    .todo-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    #todo-input {
+        min-width: 100%;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    #priority-select,
+    #due-date {
+        width: 100%;
+        font-size: 16px;
+    }
+    
+    #add-todo {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .todo-item {
+        padding: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .todo-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .todo-actions {
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .todo-actions-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .todo-actions-container button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Tablet (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .todo-form {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    #todo-input {
+        flex: 2;
+        min-width: 250px;
+    }
+    
+    #priority-select,
+    #due-date {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    #add-todo {
+        flex: 1;
+        min-width: 100px;
+    }
+    
+    .todo-actions-container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .todo-actions-container button {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+/* Large Tablet/Small Desktop (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .todo-container {
+        padding: 0 20px;
+    }
+    
+    .todo-form {
+        gap: 15px;
+    }
+    
+    .todo-item {
+        padding: 18px;
+    }
+}
+
+/* Large Desktop (1025px and up) */
+@media (min-width: 1025px) {
+    .todo-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+    
+    .todo-form {
+        gap: 20px;
+    }
+    
+    .todo-item {
+        padding: 20px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .todo-item button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+    
+    .checkbox {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .todo-item {
+        border-width: 0.5px;
+    }
+}

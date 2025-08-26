@@ -1,0 +1,21 @@
+{
+  "name": "focusflow-app",
+  "version": "1.0.0",
+  "description": "FocusFlow - Productivity Web App",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "start": "npx serve . -p 3000",
+    "build": "echo 'No build step needed for static files'"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": ["productivity", "timer", "todo", "notes", "schedule"],
+  "author": "",
+  "license": "MIT"
+}

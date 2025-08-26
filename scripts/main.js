@@ -32,7 +32,6 @@ const dom = {
     
     // Home Page
     username: document.getElementById('username'),
-    username1: document.getElementById('username1'),
     todayMinutes: document.getElementById('today-minutes'),
     completedTasks: document.getElementById('completed-tasks'),
     currentStreak: document.getElementById('current-streak'),
@@ -177,7 +176,6 @@ function showSection(sectionId) {
 function updateUI() {
     if (dom.username) {
         dom.username.textContent = appState.currentUser?.name || 'Guest';
-        dom.username1.textContent = appState.currentUser?.name || 'Guest';
     }
     if (dom.todayMinutes) {
         dom.todayMinutes.textContent = appState.focusTimeToday;
@@ -533,14 +531,61 @@ const getRandomInteger = (min, max) => {
   }
 
 
+// Setup quick focus functionality
+function setupQuickFocus() {
+    // Handle quick focus preset buttons
+    const quickFocusButtons = document.querySelectorAll('.quick-focus-btn[data-minutes]');
+    quickFocusButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const minutes = parseInt(this.getAttribute('data-minutes'));
+            if (minutes) {
+                // Set the timer in the timer section
+                const customMinutesInput = document.getElementById('custom-minutes');
+                if (customMinutesInput) {
+                    customMinutesInput.value = minutes;
+                }
+                // Navigate to timer section
+                showSection('timer');
+                // Set the timer if the timer functionality exists
+                if (typeof setCustomTimer === 'function') {
+                    setCustomTimer(minutes);
+                }
+            }
+        });
+    });
+
+    // Handle custom timer input in home section
+    const customMinutesInput1 = document.getElementById('custom-minutes1');
+    const setCustomTimerBtn1 = document.getElementById('set-custom-timer1');
+
+    if (customMinutesInput1 && setCustomTimerBtn1) {
+        setCustomTimerBtn1.addEventListener('click', function() {
+            const minutes = parseInt(customMinutesInput1.value);
+            if (minutes && minutes > 0) {
+                // Set the timer in the timer section
+                const customMinutesInput = document.getElementById('custom-minutes');
+                if (customMinutesInput) {
+                    customMinutesInput.value = minutes;
+                }
+                // Navigate to timer section
+                showSection('timer');
+                // Set the timer if the timer functionality exists
+                if (typeof setCustomTimer === 'function') {
+                    setCustomTimer(minutes);
+                }
+            }
+        });
+    }
+}
+
 // Initialize all home components
 function initHomeComponents() {
-  
-  
+
+
     showRandomQuote();
     setupQuickFocus();
 
-    
+
 }
 
 // Add this CSS to the page dynamically

@@ -205,13 +205,16 @@ function initHomeInteractions() {
         
         // Click handler to navigate to relevant section
         card.addEventListener('click', function() {
-            const statId = this.querySelector('.stat-icon').id;
-            let section = 'timer'; // default
-            
-            if (statId === 'tick') section = 'todo';
-            if (statId === 'streak') section = 'timer'; // or whatever section makes sense
-            
-            showSection(section);
+            const statIcon = this.querySelector('.stat-icon');
+            if (statIcon && statIcon.id) {
+                const statId = statIcon.id;
+                let section = 'timer'; // default
+
+                if (statId === 'tick') section = 'todo';
+                if (statId === 'streak') section = 'timer'; // or whatever section makes sense
+
+                showSection(section);
+            }
         });
     });
 

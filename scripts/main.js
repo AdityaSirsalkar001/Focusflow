@@ -32,7 +32,6 @@ const dom = {
     
     // Home Page
     username: document.getElementById('username'),
-    username1: document.getElementById('username1'),
     todayMinutes: document.getElementById('today-minutes'),
     completedTasks: document.getElementById('completed-tasks'),
     currentStreak: document.getElementById('current-streak'),
@@ -177,7 +176,6 @@ function showSection(sectionId) {
 function updateUI() {
     if (dom.username) {
         dom.username.textContent = appState.currentUser?.name || 'Guest';
-        dom.username1.textContent = appState.currentUser?.name || 'Guest';
     }
     if (dom.todayMinutes) {
         dom.todayMinutes.textContent = appState.focusTimeToday;

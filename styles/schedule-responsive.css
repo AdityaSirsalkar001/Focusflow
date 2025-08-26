@@ -1,0 +1,328 @@
+/* Schedule Component Responsive Styles */
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+    .schedule-container {
+        padding: 15px;
+    }
+    
+    #schedule-form {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .time-input-container {
+        width: 100%;
+    }
+    
+    .time-input-container input {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .time-separator {
+        display: none; /* Hide arrow on mobile, stack inputs instead */
+    }
+    
+    #schedule-priority {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    #schedule-task {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    #add-schedule {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    #schedule-list {
+        margin-top: 20px;
+    }
+    
+    .schedule-item {
+        padding: 15px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+    }
+    
+    .schedule-time {
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+        width: 100%;
+    }
+    
+    .schedule-task {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+    
+    .schedule-priority {
+        font-size: 12px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+    
+    .schedule-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+    
+    .schedule-actions button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Tablet Portrait (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .schedule-container {
+        padding: 20px;
+    }
+    
+    #schedule-form {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .time-input-container {
+        flex: 1;
+        min-width: 140px;
+    }
+    
+    .time-input-container input {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .time-separator {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        margin: 0 8px;
+    }
+    
+    #schedule-priority {
+        flex: 1;
+        min-width: 120px;
+        font-size: 16px;
+    }
+    
+    #schedule-task {
+        flex: 2;
+        min-width: 200px;
+        font-size: 16px;
+    }
+    
+    #add-schedule {
+        flex: 1;
+        min-width: 120px;
+        padding: 12px;
+    }
+    
+    .schedule-item {
+        padding: 18px;
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .schedule-time {
+        flex: 0 0 auto;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    .schedule-task {
+        flex: 1;
+        font-size: 16px;
+    }
+    
+    .schedule-priority {
+        flex: 0 0 auto;
+        font-size: 12px;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+    
+    .schedule-actions {
+        flex: 0 0 auto;
+        display: flex;
+        gap: 8px;
+    }
+}
+
+/* Tablet Landscape (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .schedule-container {
+        padding: 25px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    #schedule-form {
+        gap: 18px;
+        padding: 25px;
+    }
+    
+    .time-input-container input {
+        padding: 14px 18px;
+    }
+    
+    #schedule-task {
+        flex: 3;
+    }
+    
+    .schedule-item {
+        padding: 20px;
+        margin-bottom: 18px;
+    }
+    
+    .schedule-time {
+        font-size: 15px;
+        min-width: 100px;
+    }
+    
+    .schedule-task {
+        font-size: 16px;
+    }
+}
+
+/* Large Desktop (1025px and up) */
+@media (min-width: 1025px) {
+    .schedule-container {
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    #schedule-form {
+        gap: 20px;
+        padding: 30px;
+    }
+    
+    .time-input-container input {
+        padding: 15px 20px;
+    }
+    
+    #schedule-task {
+        flex: 4;
+    }
+    
+    .schedule-item {
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .schedule-time {
+        font-size: 16px;
+        min-width: 120px;
+    }
+    
+    .schedule-task {
+        font-size: 17px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .time-input-container input,
+    #schedule-priority,
+    #schedule-task {
+        min-height: 44px;
+        font-size: 16px;
+    }
+    
+    #add-schedule {
+        min-height: 44px;
+        font-size: 16px;
+    }
+    
+    .schedule-actions button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+}
+
+/* Landscape phone specific */
+@media (max-height: 500px) and (orientation: landscape) {
+    .schedule-container {
+        padding: 15px;
+    }
+    
+    #schedule-form {
+        padding: 15px;
+        gap: 12px;
+    }
+    
+    .schedule-item {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .schedule-item {
+        border-width: 0.5px;
+    }
+    
+    .time-input-container input,
+    #schedule-priority,
+    #schedule-task {
+        border-width: 0.5px;
+    }
+}
+
+/* Priority color indicators - responsive sizing */
+.schedule-priority.high {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.schedule-priority.medium {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.schedule-priority.low {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+/* Dark mode priority adjustments */
+@media (prefers-color-scheme: dark) {
+    .schedule-priority.high {
+        background-color: rgba(239, 68, 68, 0.3);
+    }
+    
+    .schedule-priority.medium {
+        background-color: rgba(245, 158, 11, 0.3);
+    }
+    
+    .schedule-priority.low {
+        background-color: rgba(34, 197, 94, 0.3);
+    }
+}

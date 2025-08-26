@@ -1,0 +1,234 @@
+/* Notes Component Responsive Styles */
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+    .notes-container {
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .notes-sidebar {
+        width: 100%;
+        order: 2;
+        max-height: 200px;
+        padding: 12px;
+    }
+    
+    .notes-main {
+        order: 1;
+        width: 100%;
+    }
+    
+    #note-title {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .notes-toolbar {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    .notes-toolbar button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 10px;
+    }
+    
+    .notes-view-tabs {
+        margin: 10px 0;
+    }
+    
+    .notes-view-tabs button {
+        flex: 1;
+        padding: 12px;
+    }
+    
+    #notes-textarea {
+        min-height: 300px;
+        font-size: 16px;
+        padding: 15px;
+    }
+    
+    .notes-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .notes-actions button {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .notes-stats {
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    #notes-list li {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    #new-note {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* Tablet Portrait (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .notes-container {
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .notes-sidebar {
+        width: 100%;
+        order: 2;
+        max-height: 250px;
+        padding: 15px;
+    }
+    
+    .notes-main {
+        order: 1;
+        width: 100%;
+    }
+    
+    #notes-textarea {
+        min-height: 350px;
+        font-size: 16px;
+    }
+    
+    .notes-toolbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .notes-actions {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .notes-actions button {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+    }
+}
+
+/* Tablet Landscape (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .notes-container {
+        gap: 25px;
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .notes-sidebar {
+        width: 25%;
+        padding: 18px;
+    }
+    
+    .notes-main {
+        width: 75%;
+    }
+    
+    #notes-textarea {
+        min-height: 400px;
+    }
+    
+    .notes-toolbar {
+        gap: 12px;
+    }
+    
+    .notes-actions {
+        gap: 15px;
+    }
+}
+
+/* Large Desktop (1025px and up) */
+@media (min-width: 1025px) {
+    .notes-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 30px;
+        height: 75vh;
+        min-height: 600px;
+    }
+    
+    .notes-sidebar {
+        width: 20%;
+        padding: 20px;
+    }
+    
+    .notes-main {
+        width: 80%;
+    }
+    
+    #notes-textarea {
+        min-height: 450px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .notes-toolbar button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+    
+    .notes-view-tabs button {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+    
+    .notes-actions button {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+    
+    #notes-list li {
+        min-height: 44px;
+        padding: 12px;
+    }
+    
+    #new-note {
+        min-height: 44px;
+        padding: 12px;
+    }
+}
+
+/* Landscape phone specific */
+@media (max-height: 500px) and (orientation: landscape) {
+    .notes-container {
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .notes-sidebar {
+        max-height: 150px;
+    }
+    
+    #notes-textarea {
+        min-height: 200px;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .notes-toolbar button {
+        border-width: 0.5px;
+    }
+    
+    #notes-textarea {
+        border-width: 0.5px;
+    }
+}
